@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Patient : MonoBehaviour
 {
 	GameObject GM;
-
+	public Image playerhealth;
 	
 
 	public bool treated = false;
@@ -43,6 +44,7 @@ public class Patient : MonoBehaviour
 			Destroy(gameObject);
 		}
 
+		
 
 		deathTime -= Time.deltaTime;
 
@@ -59,5 +61,9 @@ public class Patient : MonoBehaviour
 		
 	}
 
+	public void IncreaseHealth()
+    {
+
+    }
 	
 }

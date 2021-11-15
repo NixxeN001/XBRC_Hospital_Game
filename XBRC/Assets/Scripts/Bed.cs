@@ -34,6 +34,7 @@ public class Bed : MonoBehaviour
 				Ocupied = true;
 
 				Ocupant.GetComponent<Patient>().Treated = true;
+				
 
 			}
 		}
@@ -50,7 +51,11 @@ public class Bed : MonoBehaviour
 			if (Treating > 0)
 			{
 				Treating -= Time.deltaTime;
+				float inverseTreament = Treating / Ocupant.GetComponent<Patient>().treatmentTime;
+				Ocupant.GetComponent<Patient>().playerhealth.fillAmount = inverseTreament;
+				//Debug.Log("Treament time is: " + inverseTreament);
 
+			
 				//Debug.Log(Treating);
 			}
 			else
