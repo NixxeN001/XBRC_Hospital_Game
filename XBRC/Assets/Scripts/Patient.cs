@@ -44,7 +44,7 @@ public class Patient : MonoBehaviour
 			Destroy(gameObject);
 		}
 
-		//Debug.Log("Treatment time is: " + this.treatmentTime);
+		
 
 		deathTime -= Time.deltaTime;
 
