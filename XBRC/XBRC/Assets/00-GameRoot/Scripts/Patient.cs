@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Patient : MonoBehaviour
 {
+	
 	public Image playerhealth;
 	
 
@@ -22,12 +23,13 @@ public class Patient : MonoBehaviour
 
 	private void Start()
 	{
+	
 		treatmentTime = Random.Range(minTime, maxTime);
 		treatmentCost = treatmentTime * 1000;
 		deathTime = treatmentTime * 3;
 
 		treatmentTime = treatmentTime - (treatmentTime * (GameManager.effiecency/100));
-
+		FindObjectOfType<AudioManager>().PlaySound("NPC_VL1");
 		
 	}
 

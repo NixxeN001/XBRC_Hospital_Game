@@ -27,12 +27,5 @@ public abstract class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void SetSoundVolume(float volume)
-    {
-        AudioManager.Static_SetSoundVolume(volume);
-    }
-    public void SetMusicVolume(float volume)
-    {
-        AudioManager.Static_SetMusicVolume(volume);
-    }
+  
 }

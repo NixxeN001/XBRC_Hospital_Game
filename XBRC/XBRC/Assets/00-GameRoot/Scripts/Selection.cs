@@ -28,7 +28,7 @@ public class Selection : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-       
+            FindObjectOfType<AudioManager>().PlaySound("ClickSound");
             RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
@@ -40,7 +40,7 @@ public class Selection : MonoBehaviour
 
                     SelectedUnit = hit.transform.gameObject;
 
-                    Debug.Log(SelectedUnit.name);
+                    //Debug.Log(SelectedUnit.name);
                 }
 
 				if (SelectedUnit != null)
@@ -60,7 +60,7 @@ public class Selection : MonoBehaviour
                                 SelectedBed = hit2.transform.gameObject;
 
                               
-                                Debug.Log(SelectedBed.name);
+                               // Debug.Log(SelectedBed.name);
                             }
 
                             if ((SelectedBed != null) && (SelectedBed.GetComponent<Bed>().Ocupied == false))
