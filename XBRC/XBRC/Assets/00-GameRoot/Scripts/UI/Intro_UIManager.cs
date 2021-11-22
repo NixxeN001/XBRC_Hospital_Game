@@ -33,6 +33,7 @@ public class Intro_UIManager : UIManager
     }
     public void QuitGame()
     {
+        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 }

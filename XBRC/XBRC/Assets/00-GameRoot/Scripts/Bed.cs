@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Bed : MonoBehaviour
 {
-     
+
     public bool Ocupied = false;
     public GameObject Ocupant;
 
@@ -34,6 +34,8 @@ public class Bed : MonoBehaviour
                 Ocupied = true;
 
                 Ocupant.GetComponent<Patient>().Treated = true;
+                Ocupant.GetComponent<Patient>().p_anime.SetBool("isWalking", false);
+               
 
 
             }
@@ -44,7 +46,7 @@ public class Bed : MonoBehaviour
             Vector3 eulerRotation = new Vector3(-90, 0, transform.eulerAngles.y);
 
             Ocupant.transform.rotation = Quaternion.Euler(eulerRotation);
-            
+
 
 
 
@@ -55,6 +57,7 @@ public class Bed : MonoBehaviour
                 float inverseTreament = Treating / Ocupant.GetComponent<Patient>().treatmentTime;
                 Ocupant.GetComponent<Patient>().playerhealth.fillAmount = inverseTreament;
                 //Debug.Log("Treament time is: " + inverseTreament);
+
 
 
                 //Debug.Log(Treating);
@@ -71,6 +74,8 @@ public class Bed : MonoBehaviour
                 Ocupant.transform.rotation = Quaternion.Euler(eulerRotation2);
 
                 Ocupant.GetComponent<Motor>().Move(GameObject.Find("exit").transform.position);
+                Ocupant.GetComponent<Patient>().p_anime.SetBool("isWalking", true);
+             
                 Ocupant.GetComponent<Patient>().Pay();
                 Ocupant = null;
                 StartCoroutine(OnlyCall());
@@ -90,7 +95,7 @@ public class Bed : MonoBehaviour
             FindObjectOfType<AudioManager>().PlaySound(coh1);
             firstswitch = false;
         }
-        else if(!firstswitch)
+        else if (!firstswitch)
         {
             FindObjectOfType<AudioManager>().PlaySound(coh2);
         }

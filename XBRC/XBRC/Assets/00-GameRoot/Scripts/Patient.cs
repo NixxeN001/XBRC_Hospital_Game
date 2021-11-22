@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class Patient : MonoBehaviour
 {
 	
 	public Image playerhealth;
-	
+
+	public Animator p_anime;
 
 	public bool treated = false;
 
@@ -23,6 +25,8 @@ public class Patient : MonoBehaviour
 
 	private void Start()
 	{
+		p_anime = GetComponent<Animator>();
+		p_anime.SetBool("isWalking", true);
 	
 		treatmentTime = Random.Range(minTime, maxTime);
 		treatmentCost = treatmentTime * 1000;
